@@ -1,0 +1,42 @@
+
+.checkDone{
+  color:#6610f2;
+}
+
+.checkDone:hover{
+  background-color:#f29010;
+  color:#fff;
+}
+
+.checkCurr{
+  color:#f29010;
+}
+
+.checkCurr:hover{
+  background-color:#6610f2;
+  color:#fff;
+}
+
+.btnSave{
+  color:rgb(11, 207, 86);
+}
+.btnSave:hover{
+  color:#fff;
+  background-color:rgb(11, 207, 86);
+}
+
+.btnEdit{
+  color:rgb(11, 116, 207);
+}
+.btnEdit:hover{
+  color:#fff;
+  background-color: rgb(11, 116, 207);
+}
+
+.btnRemove{
+  color:rgb(207, 37, 11);
+}
+.btnRemove:hover{
+  color:#fff;
+  background-color: rgb(207, 37, 11);
+}

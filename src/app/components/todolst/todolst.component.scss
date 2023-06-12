@@ -1,0 +1,105 @@
+#myTodos{
+  margin-top: 6em;
+  display: flex;
+  flex-direction:row;
+}
+
+#todos{
+  display: flex;
+  flex-direction: row;
+  gap: 10em;
+
+  margin: auto;
+  margin-top: 3em;
+}
+
+.todosDone, .todosCurr{
+  display: flex;
+  flex-direction: column;
+  gap:3em;
+  width: 20em;
+  margin: none ;
+  
+}
+
+.form-floating{
+  margin-bottom: 1em;
+}
+
+.btn-primary, .active{
+  color: #fff;
+  background-color: #6610f2;
+}
+
+.list-group-item-check + .list-group-item > .btn{
+  color: #6e6767;
+}
+
+.list-group-item-check:checked + .list-group-item,
+.list-group-item-check:checked + .list-group-item > .btn {
+  color: #fff;
+  background-color: #6610f2;
+}
+
+.dones{
+  top: 10%;
+}
+
+.btnsCard{
+  height: 3em;
+  display: flex;
+  justify-content: end;
+}
+
+.btn{
+  transition: none;
+}
+
+.btn:hover{
+  border: none;
+}
+
+.checkDone{
+  color:#6610f2;
+}
+
+.checkDone:hover{
+  background-color:#f29010;
+  color:#fff;
+}
+
+.checkCurr{
+  color:#f29010;
+}
+
+.checkCurr:hover{
+  background-color:#6610f2;
+  color:#fff;
+}
+
+.btnSee{
+  color:lightseagreen;
+}
+.btnSee:hover{
+  color:#fff;
+  background-color: lightseagreen;
+}
+
+i{
+  padding: 0;
+  font-size: 2rem !important;
+}
+
+.active i{
+    color: #fff;
+}
+
+#formTodo,
+#formAddTodo{
+  width: 20em;
+  margin-right: 1em;
+  margin-top: 0;
+}
+
+
+

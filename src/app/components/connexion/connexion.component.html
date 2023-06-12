@@ -1,0 +1,37 @@
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+  <div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Restez Organisé!</h1>
+      <p class="col-lg-10 fs-4">Créez et organisez vos tâches à l'infini <i class="bi bi-check2-circle"></i></p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+
+      <!-- Tabs navs -->
+      <ul class="nav nav-tabs mb-3" id="ex1">
+        <li class="nav-item">
+          <a [ngClass]="{'active': action == 0}" class="nav-link" (click)="onChangeConnect(0)">Créer un Compte</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" id="ex1-tab-2" [ngClass]="{'active': action == 1}"(click)="onChangeConnect(1)">Se Connecter</a>
+        </li>
+      </ul>
+      <!-- Tabs navs -->
+
+      <form #coForm="ngForm" class="p-4 p-md-5 border rounded-3 bg-body-tertiary" data-bitwarden-watching="1" (ngSubmit)="onSubmitConnect(coForm)">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nameInput" name="nameInput" placeholder="Pseudo" required ngModel>
+          <label for="nameInput">Nom</label>
+        <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="pwdInput" name="pwdInput" placeholder="Password" required ngModel>
+          <label for="pwdInput">Mdp</label>
+        <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
+          <p class="text-danger" *ngIf="error!=''">{{error | titlecase}}</p>
+          <button *ngIf="action == 0" class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!coForm.valid">Créer un compte</button>
+          <button *ngIf="action == 1"  class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!coForm.valid">Se Connecter</button>
+          <hr class="my-4">
+        <small class="text-body-secondary">En cliquant sur "Créer un compte" ou "Se Connecter", vous acceptez nos conditions de création de todos.</small>
+      </form>
+    </div>
+  </div>
+</div>

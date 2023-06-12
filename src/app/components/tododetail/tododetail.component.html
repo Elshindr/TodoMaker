@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+      <h1    *ngIf="!onEdit" class="display-4 fw-bold lh-1">{{todo.text | titlecase}}</h1>
+      <input *ngIf="onEdit"  class="display-4 fw-bold lh-1" type="text" [(ngModel)]="titleEdit">
+      
+      <p     *ngIf="!onEdit" class="lead">{{todo.categorie  | titlecase}}</p>
+      <input *ngIf="onEdit" class="lead" type="text" [(ngModel)]="cateEdit">
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+        <div class="btn-group">
+          <button (click)="onRemove()" type="button" class="btn btn-lg btn-outline-secondary bi bi-trash-fill btnRemove"></button>
+          <button *ngIf="!onEdit" (click)="editTodo(titleEdit, cateEdit)" type="button" class="btn btn-lg btn-outline-secondary bi bi-pencil-fill btnEdit"></button>
+          <button *ngIf="onEdit"  (click)="editTodo(titleEdit, cateEdit)" type="button" class="btn btn-lg btn-outline-secondary bi bi-save2-fill btnSave"></button>
+          <button *ngIf="todo.done" (click)="onChangeDone()"  type="button" class="btn btn-lg btn-outline-secondary bi bi-check-circle-fill checkDone"></button>
+          <button *ngIf="!todo.done" (click)="onChangeDone()" type="button" class="btn btn-lg btn-outline-secondary bi bi-x-diamond-fill checkCurr"></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+  
+      <p     *ngIf="!onEdit" class="lead">{{todo | json}}</p>
+    
+    </div>
+  </div>
+</div>

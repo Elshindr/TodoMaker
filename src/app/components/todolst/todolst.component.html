@@ -1,0 +1,87 @@
+<div id="myTodos">
+
+  <div id="todos" class="list-group list-group-checkable border-0">
+    
+    <div class="todosCurr">
+      <div *ngFor="let elm of lstTodosCurr;">
+            <div class="list-group-item rounded-3 py-3" [id]="'listGroupTodo'+elm.id">
+                {{elm.text | titlecase}}
+
+                <div class="dones position-absolute end-0 me-3 fs-5"> 
+                </div>
+
+                <div class="small opacity-50">{{elm.categorie | titlecase }}</div>
+                
+                <div class="small btnsCard">
+                  <div class="btn-group">
+                    <button *ngIf="elm.done" type="button" class="btn btn-outline-secondary bi bi-check-circle-fill checkDone" (click)="onChangeDone(elm)"></button>
+                    <button *ngIf="!elm.done" type="button" class="btn btn-outline-secondary bi bi-x-diamond-fill checkCurr" (click)="onChangeDone(elm)"></button>
+                    <button type="button" class="btn btn-outline-secondary bi bi-eye-fill btnSee"  [routerLink]="['/liste', curUser.id, elm.id]"></button>
+                  </div>
+                </div>
+
+            </div>
+      </div>
+    </div>
+
+    <div class="todosDone">
+      <div *ngFor="let elm of lstTodosDone;">
+        <div class="list-group-item rounded-3 py-3" [id]="'listGroupTodo'+elm.id">
+              {{elm.text | titlecase}}
+              <div class="dones position-absolute end-0 me-3 fs-5"> 
+              </div>
+              <div class="small opacity-50">{{elm.categorie | titlecase }}</div>
+              <div class="small btnsCard">
+                <div class="btn-group">
+                  <button *ngIf="elm.done" type="button" class="btn btn-outline-secondary bi bi-check-circle-fill checkDone" (click)="onChangeDone(elm)"></button>
+                  <button *ngIf="!elm.done" type="button" class="btn btn-outline-secondary bi bi-x-diamond-fill checkCurr" (click)="onChangeDone(elm)"></button>
+                  <button type="button" [routerLink]="['/liste', curUser.id, elm.id]" class="btn btn-outline-secondary bi bi-eye-fill btnSee"></button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="formTodo">
+
+    <div id="formAddTodo"  class="form-signin">
+      <form #addForm="ngForm" (ngSubmit)="onSubmitAddTodo(addForm)">
+        <p class="mb-3 text-muted">Ajouter une tache</p>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" name="text" id="textInput" placeholder="Se faire un café, Finir le bilan comptable" required ngModel>
+          <label for="textInput">Titre</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" name="categorie" id="categorieInput" placeholder="Maison" required ngModel>
+          <label for="floatingPassword">Categorie</label>
+        </div>
+
+        <div class="checkbox mb-3 ">
+          <label class="form-floating flex-shrink-0">
+            <input type="checkbox" value="" name="done" ngModel> Terminée?
+          </label>
+          <div *ngIf="error != ''" id="addFormError" class="alert alert-danger" role="alert">{{error | titlecase }}</div>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!addForm.valid">Ajouter!</button>
+        
+
+      </form>
+    </div>
+
+    <div id="formCategorie">
+      <p class="mt-5 mb-3 text-muted">Catégories</p>
+      <div >
+        <ul class="dropdown-menu dropdown-menu-dark position-static d-grid gap-1 p-2 rounded-3 mx-0 border-0 shadow w-220px">
+          <li (click)="onSelectCategorie('All')" ><a class="dropdown-item rounded-2">All</a></li>
+          <li (click)="onSelectCategorie(elm)" *ngFor="let elm of lstCategories" ><a class="dropdown-item rounded-2">{{elm | titlecase}}</a></li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
